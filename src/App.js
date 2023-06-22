@@ -2,16 +2,6 @@ import React from 'react';
 import TextToImageForm from './TextToImageForm';
 import axios from 'axios';
 
-const App = () => {
-  return (
-    <div className="App">
-      <TextToImageForm />
-    </div>
-  );
-};
-
-export default App;
-
 const callTxtToImgAPI = async () => {
   try {
     const response = await axios.post('/api/txt_to_img_api', {
@@ -30,3 +20,14 @@ const callTxtToImgAPI = async () => {
     console.error('Error:', error);
   }
 };
+
+const App = () => {
+  return (
+    <div className="App">
+      <TextToImageForm />
+      <button onClick={callTxtToImgAPI}>Call API</button>
+    </div>
+  );
+};
+
+export default App;

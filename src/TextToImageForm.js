@@ -37,17 +37,18 @@ const TextToImageForm = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="prompt">Prompt:</label>
         <input type="text" id="prompt" value={prompt} onChange={(e) => setPrompt(e.target.value)} required />
-        <input type="text" id="negative prompt" value={negprompt} onChange={(e) => setNegPrompt(e.target.value)} required />
-        {/* Add other input fields for nImages, negPrompt, guidance, steps, width, height, and seed */}
+
+        <label htmlFor="negprompt">Negative Prompt:</label>
+        <input type="text" id="negprompt" value={negPrompt} onChange={(e) => setNegPrompt(e.target.value)} required />
+
+        {/* Add other input fields for nImages, guidance, steps, width, height, and seed */}
         
-        <button type="submit" onClick={callTxtToImgAPI}>Generate</button>
+        <button type="submit">Convert</button>
       </form>
       {result && (
         <div>
           <h3>Result:</h3>
-          {result.map((image, index) => (
-            <img key={index} src={image} alt={`Generated Image ${index}`} />
-          ))}
+          {/* Render the result */}
         </div>
       )}
     </div>
